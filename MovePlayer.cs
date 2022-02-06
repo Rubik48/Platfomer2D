@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class MovePlayer : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -15,6 +16,8 @@ public class MovePlayer : MonoBehaviour
 
     private float _valueForRunAnimation;
     private bool _touchGround;
+    private const string _jump = "Jump";
+    private const string _ground = "Ground";
 
     private void Start()
     {
@@ -27,13 +30,11 @@ public class MovePlayer : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(transform.position);
-
         IdleAnimation();
 
         if (Input.GetKey(KeyCode.Space) && _touchGround)
         {
-            _animator.SetTrigger("Jump");
+            _animator.SetTrigger(_jump);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _powerJump);
         }
         if (Input.GetKey(KeyCode.D))
@@ -62,7 +63,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Ground")
+        if (collision.transform.tag.Equals(_ground))
         {
             _touchGround = true;
         }
@@ -70,7 +71,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Ground")
+        if (collision.transform.tag.Equals(_ground))
         {
             _touchGround = false;
         }
