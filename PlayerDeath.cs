@@ -8,7 +8,7 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag.Equals(_enemy))
+        if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
             transform.position = _startPoint.position;
         }

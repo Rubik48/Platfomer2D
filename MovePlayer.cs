@@ -62,7 +62,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.tag.Equals(Ground))
+        if (collision.gameObject.TryGetComponent(out Ground ground))
         {
             _touchGround = true;
         }
@@ -70,7 +70,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.transform.tag.Equals(Ground))
+        if (collision.gameObject.TryGetComponent(out Ground ground))
         {
             _touchGround = false;
         }
