@@ -3,14 +3,14 @@ using UnityEngine.Events;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _onCreateNewCoin;
+    [SerializeField] private UnityEvent _coinCollected;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
         {
             Destroy(gameObject);
-            _onCreateNewCoin?.Invoke();
+            _coinCollected?.Invoke();
         }
     }
 }
