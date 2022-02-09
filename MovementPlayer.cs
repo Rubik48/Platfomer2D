@@ -33,7 +33,6 @@ public class MovementPlayer : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && _touchGround)
         {
-            Debug.Log(123);
             _animator.SetTrigger(Jump);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _powerJump);
         }
