@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Coin _coin;
+    [SerializeField] private Coin _coinTemplate;
     [SerializeField] private Transform[] _spawnPoints;
 
     private void Start()
@@ -13,6 +13,6 @@ public class Spawner : MonoBehaviour
     public void SpawnCoin()
     {
         int _spawnPoint = Random.Range(0, _spawnPoints.Length);
-        Instantiate(_coin, _spawnPoints[_spawnPoint].position, Quaternion.identity);
+        Instantiate(_coinTemplate, _spawnPoints[_spawnPoint].position, Quaternion.identity);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class MovePlayer : MonoBehaviour
+public class MovementPlayer : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _powerJump;

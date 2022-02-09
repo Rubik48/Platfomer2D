@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class MoveEnemy : MonoBehaviour
+public class MovementEnemy : MonoBehaviour
 {
     [SerializeField] private Transform _startWayPoint;
     [SerializeField] private Transform _endWayPoints;
